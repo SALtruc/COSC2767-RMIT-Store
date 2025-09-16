@@ -2,11 +2,22 @@
   "name": "server",
   "version": "1.0.0",
   "description": "RMIT Ecommerce Server",
+
   "scripts": {
     "dev": "nodemon",
     "start": "cross-env NODE_ENV=production node index.js",
-    "seed:db": "node utils/seed.js"
+    "seed:db": "node utils/seed.js",
+    "test": "jest --detectOpenHandles --forceExit",
+    "test:unit": "jest --testPathPatterns=unit --detectOpenHandles --forceExit",
+    "test:integration": "jest --testPathPatterns=integration --detectOpenHandles --forceExit",
+    "test:watch": "jest --watch --detectOpenHandles"
   },
+
+
+
+
+
+
   "dependencies": {
     "@faker-js/faker": "^9.9.0",
     "aws-sdk": "^2.799.0",

@@ -1,9 +1,25 @@
 module.exports = {
-  testEnvironment: 'node',
+  testEnvironment: "node",
   verbose: true,
+  testTimeout: 30000,
   testMatch: [
-    "**/tests/**/*.test.js",  // Matches test files in the tests folder
-    "**/?(*.)+(spec|test).js" // Matches files with spec or test suffix
-  ]
-
+    "**/tests/**/*.test.js",
+    "**/tests/**/*.spec.js",
+    "**/__tests__/**/*.test.js",
+    "**/__tests__/**/*.spec.js",
+  ],
+  setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
+  collectCoverage: true,
+  coverageDirectory: "coverage",
+  coverageReporters: ["text", "lcov", "html"],
+  collectCoverageFrom: [
+    "routes/**/*.js",
+    "services/**/*.js",
+    "utils/**/*.js",
+    "models/**/*.js",
+    "!**/node_modules/**",
+    "!**/tests/**",
+    "!**/coverage/**",
+  ],
+  testPathIgnorePatterns: ["/node_modules/", "/coverage/"],
 };

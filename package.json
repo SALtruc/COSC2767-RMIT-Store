@@ -10,7 +10,13 @@
     "postinstall": "npm-run-all --parallel install:*",
     "install:client": "cd client && npm install",
     "install:server": "cd server && npm install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:server && npm run test:ui",
+    "test:server": "cd server && npm test",
+    "test:unit": "cd server && npm run test:unit",
+    "test:integration": "cd server && npm run test:integration",
+    "test:ui": "npx playwright test",
+    "test:watch": "cd server && npm run test:watch",
+    "test:coverage": "cd server && npm test -- --coverage"
   },
   "repository": {
     "type": "git",
