@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  mongo:
+    image: mongo:6
+    container_name: rmit-mongo-local
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data_local:/data/db
+volumes:
+  mongo_data_local:
